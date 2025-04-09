@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar {
+            background-color: #004080; /* 蓝色背景 */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; /* 固定位置 */
+            top: 0; /* 置于顶部 */
+            width: 100%; /* 全屏宽度 */
+            z-index: 1000; /* 确保在最上层 */
+            height: 50px;
+        }
+        
+        .navbar-left,
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-item {
+            margin: 0 15px;
+            cursor: pointer;
+        }
+        .header {
+            position: fixed;
+            top: 50px; /* 在导航栏下方 */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background: white;
+            z-index: 1000;
+            height: 70px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+       
+        .school-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #004080;
+        }
+
+        /* 主要菜单项样式 */
+        .main-menu {
+            display: flex;
+            gap: 25px;
+            
+        }
+        
+
+        .menu-item {
+            margin: 0 20px;
+            cursor: pointer;
+        }
+        .blue-square {
+            width: 150px; /* 小方块的宽度 */
+            height: 70px; /* 小方块的高度 */
+            background-color: #004080; /* 蓝色背景 */
+            position: absolute; /* 绝对定位 */
+            top: -70px; /* 向上偏移小方块高度的一半 */
+            left: 50%; /* 水平居中 */
+            transform: translateX(-50%); /* 向左偏移小方块宽度的一半，以实现完全居中 */
+            z-index: 10;
+            color: white;
+            font-size: 35px;       
+        }
+
+        .content {
+            position: relative;
+            margin-top: 200px; /* 为导航栏留出空间 */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* 色块样式 */
+        .color-block {
+            width: 200px;
+            height: 450px;
+            background-color: blue;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        /* 特殊色块布局 */
+        .large-block {
+            width: 650px; /* 左侧大块 */
+        }
+        
+        
+        .small-block {
+            width: 300px; /* 右侧小块 */
+        }
+        
+        .row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            width: 48%;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .column h2 {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f9f9f9;
+            margin: 0;
+        }
+        .news-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease; /* 添加过渡效果 */
+            margin-top: 10px; /* 添加上边距 */
+            margin-bottom: 10px; /* 添加下边距 */
+        }
+        .news-item:first-child {
+            margin-top: 0; /* 第一个新闻项不需要上边距 */
+        }
+        .news-item:last-child {
+            margin-bottom: 0; /* 最后一个新闻项不需要下边距 */
+            border-bottom: none;
+        }
+        .news-item:hover {
+            background-color: red; /* 鼠标悬停时背景变红 */
+        }
+        .news-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .news-date {
+            color: #888;
+            font-size: 12px;
+        }
+        
+        
+        
+        .additional-colors {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px; /* 与上面的内容保持一定距离 */
+        
+            
+        }
+
+        /* 单个新增色块的样式 */
+        .additional-color-block {
+            width: 150px; /* 与 .blue-square 宽度相同 */
+            height: 70px; /* 与 .blue-square 高度相同 */
+            background-color: #004080; /* 蓝色背景 */
+            margin-bottom: 10px; /* 与下面的内容保持一定距离 */
+            position: relative; /* 添加相对定位 */
+            color: white;
+            font-size: 35px;
+           
+        }
+        /* 第一行第一个色块下方的五个竖向排列的长方形色块容器样式 */
+        .vertical-colors-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px; /* 与单个新增色块宽度相同 */
+        }
+
+        /* 第一行第一个色块下方的五个竖向排列的长方形色块 */
+        .vertical-color-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* 色块之间的间距 */
+            position: absolute;
+            top: 100%; /* 定位到父容器底部 */
+            margin-top: 20px; /* 增加20px间距 */
+            left: 50%; /* 水平居中 */
+            transform: translateX(-50%); /* 向左偏移自身宽度的一半，以实现完全居中 */
+            width: 400px; /* 与父容器宽度相同 */
+        }
+         /* 单个竖向排列的长方形色块样式 */
+        .vertical-color-block {
+            width: 400px;; /* 与 .additional-color-block 宽度相同 */
+            height: 60px; /* 长方形的高度 */
+            background-color: white; /* 蓝色背景 */
+            margin-bottom: 10px;
+        }
+        .vertical-color-block:hover {
+            background-color: red; /* 鼠标悬停时背景变红 */
+        }
+        .vertical-color-block:last-child {
+            margin-bottom: 50px; /* 最后一个新闻项不需要下边距 */
+        }
+
+        /* 第一行中间色块下方的大色块 */
+        .large-color-block {
+            width: 500px; /* 大色块的宽度 */
+            height: 380px; /* 大色块的高度 */
+            background-color: white; /* 蓝色背景 */
+            position: absolute;
+            top: 100%; 
+            left: 50%; /* 水平居中 */
+            transform: translateX(-50%); /* 向左偏移自身宽度的一半，以实现完全居中 */
+            margin-top: 20px;
+        }
+        .large-color-block:last-child {
+            margin-bottom: 50px; /* 最后一个新闻项不需要下边距 */
+        }
+        .large-color-block:hover {
+            background-color: red; /* 鼠标悬停时背景变红 */
+        }
+
+        /* 第一行右边色块下方的两列六行的小色块 */
+        .small-color-blocks {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 两列 */
+            gap: 10px; /* 色块之间的间距 */
+            position: absolute;
+            top: 100%;
+            margin-top: 20px;
+            left: 50%;
+            transform: translateX(-50%); /* 向左偏移自身宽度的一半，以实现完全居中 */
+            width: 400px; /* 与父容器宽度相同 */
+        }
+        .small-color-block {
+            width: 200px; /* 小色块的宽度 */
+            height: 50px; /* 小色块的高度 */
+            background-color: white; /* 蓝色背景 */
+            margin-bottom: 5px;
+        }
+        .small-color-block:last-child {
+            margin-bottom: 50px; /* 最后一个新闻项不需要下边距 */
+        }
+        .small-color-block:hover {
+            background-color: red; /* 鼠标悬停时背景变红 */
+        }
+        .blueback{
+            background-color: #004080; /* 蓝色背景 */
+            width: 100%; /* 全屏宽度 */
+            height: 200px;
+            margin-top: 500px;
+
+        }
+    </style>
+   
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-item">学生</div>
+            <div class="navbar-item">教工</div>
+            <div class="navbar-item">校友</div>
+            <div class="navbar-item">访客</div>
+            <div class="navbar-item">无障碍阅读</div>
+            <div class="navbar-item">进入关怀版</div>
+        </div>
+        <div class="navbar-right">
+            <div class="navbar-item">一网通办</div>
+            <div class="navbar-item">办事大厅</div>
+            <div class="navbar-item">邮箱</div>
+            <div class="navbar-item">VPN</div>
+            <div class="navbar-item">English</div>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="school-name">上海对外经贸大学</div>
+        <div class="main-menu">
+            <div class="menu-item">学校概况</div>
+            <div class="menu-item">机构设置</div>
+            <div class="menu-item">师资队伍</div>
+            <div class="menu-item">科学研究</div>
+            <div class="menu-item">人才培养</div>
+            <div class="menu-item">招生就业</div>
+            <div class="menu-item">国际交流</div>
+            <div class="menu-item">公开事项</div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="blue-square">校园要闻</div>
+        <!-- 上层色块 -->
+        <div class="row">
+            <div class="color-block large-block">大型色块</div>
+            <div class="color-block small-block">小型色块</div>
+            <div class="color-block small-block">小型色块</div>
+        </div>
+        
+        <!-- 下层色块 -->
+        <div class="row">
+            <div class="color-block small-block">小型色块</div>
+            <div class="color-block small-block">小型色块</div>
+            <div class="color-block large-block">大型色块</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="column">
+            <h2>新闻快讯</h2>
+            <div class="news-item">
+                <div class="news-title">新闻快讯新闻快讯新闻快讯新闻快讯</div>
+                <div class="news-date">2025-04-08</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">新闻快讯新闻快讯新闻快讯新闻快讯</div>
+                <div class="news-date">2025-04-04</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">新闻快讯新闻快讯新闻快讯新闻快讯</div>
+                <div class="news-date">2025-04-02</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">新闻快讯新闻快讯新闻快讯新闻快讯</div>
+                <div class="news-date">2025-04-01</div>
+            </div>
+        </div>
+    
+        <div class="column">
+            <h2>媒体报道</h2>
+            <div class="news-item">
+                <div class="news-title">媒体报道媒体报道媒体报道媒体报道</div>
+                <div class="news-date">2025-04-08</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">媒体报道媒体报道媒体报道媒体报道</div>
+                <div class="news-date">2025-04-02</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">媒体报道媒体报道媒体报道媒体报道</div>
+                <div class="news-date">2025-04-01</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">媒体报道媒体报道媒体报道媒体报道</div>
+                <div class="news-date">2025-04-01</div>
+            </div>
+        </div>
+    </div>
+    <div class="additional-colors">
+        <!-- 第一行三个色块 -->
+        <div class="additional-color-block">科研动态
+            <!-- 对应的第一行第一个色块下方的五个竖向排列的长方形色块 -->
+            <div class="vertical-color-blocks">
+                <div class="vertical-color-block"></div>
+                <div class="vertical-color-block"></div>
+                <div class="vertical-color-block"></div>
+                <div class="vertical-color-block"></div>
+                <div class="vertical-color-block"></div>
+            </div>
+        </div>
+        <div class="additional-color-block">精彩影像
+            <!-- 对应的第一行中间色块下方的大色块 -->
+            <div class="large-color-block"></div>
+        </div>
+        <div class="additional-color-block">专题网站
+            <!-- 对应的第一行右边色块下方的两列六行的小色块 -->
+            <div class="small-color-blocks">
+                <div class="small-color-block"></div>
+                <div class="small-color-block"></div>
+                <div class="small-color-block"></div>
+                <div class="small-color-block"></div>
+                <div class="small-color-block"></div>
+                <div class="small-color-block"></div>
+                <div class="small-color-block"></div>
+                <div class="small-color-block"></div>
+                <div class="small-color-block"></div>
+                <div class="small-color-block"></div>
+                <div class="small-color-block"></div>
+                <div class="small-color-block"></div>
+            </div>
+        </div>
+    </div>
+    <div class="blueback"></div>
+
+
+</body>
+</html>
