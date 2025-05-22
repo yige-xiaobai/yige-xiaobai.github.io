@@ -1,57 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>简历管理系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* 左侧导航栏 */
+        .left-column {
+            width: 280px;  /* 加宽左侧栏 */
+            background: white;
+            padding: 40px 30px;  /* 增加内边距 */
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-button {
+            display: block;
+            width: 100%;
+            padding: 18px;  /* 加大按钮内边距 */
+            margin-bottom: 20px;  /* 增加按钮间距 */
+            background: #FF69B4;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 18px;  /* 加大字体 */
+        }
+
+        .nav-button:hover {
+            transform: translateX(8px);  /* 加强悬停动效 */
+            background: #FF1493;
+        }
+
+        /* 右侧内容区 */
+        .right-column {
+            flex: 1;
+            padding: 40px;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 40px;  /* 增加间距 */
+        }
+
+        /* 个人作业标题 */
+        .static-title {
+            font-size: 42px;  /* 加大标题字号 */
+            color: #333;
+            text-align: right;
+            padding: 20px 40px;  /* 增加标题右侧留白 */
+            border-bottom: 3px solid #FF69B4;
+        }
+
+        /* 大作业按钮 */
+        .big-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #FF69B4;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 28px;  /* 适当减小字号 */
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255,105,180,0.3);
+            max-width: 800px;  /* 限制最大宽度 */
+            height: 200px;  /* 固定高度 */
+            margin: 0 auto;  /* 水平居中 */
+            width: 80%;  /* 相对宽度 */
+        }
+
+        .big-button:hover {
+            background: #FF1493;
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(255,20,147,0.4);
+        }
+    </style>
 </head>
 <body>
-    <h1>简历</h1>
-    <hr>
-    <h2>joy</h2>
-    <img src="shajin.jpg" alt="" width="300px">
-    <br>
-    <a href="form.html">跳转页面</a>
-    <a href="b.html">跳转网站页面</a>
-    <hr>
-    <ul>
-        <li><b>性别：</b>女</li>
-        <li><b>电话：</b>1888888888</li>
-        <li><b>邮箱：</b>joy0568@163.com</li>
-        <li><b>生日：</b>2005.1.1</li>
-    </ul>
-    <hr>
-    <h3>教育经历</h3>
-    <table width="1000px" border="1" cellspacing="0">
-        <tr>
-            <td>时间</td>
-            <td>学校</td>
-            <td> 职务</td>
-        </tr>
-        <tr>
-            <td>2010</td>
-            <td>小学</td>
-            <td>小学生</td>
-        </tr>
-        <tr>
-            <td>2016</td>
-            <td>中学</td>
-            <td>中学生</td>
-        </tr>
-        <tr>
-            <td>2023</td>
-            <td>大学</td>
-            <td>大学生</td>
-        </tr>
-    </table>
-    <hr>
-    <h3>工作经验</h3>
-    <ol>
-        <li>asfsf</li>
-        <li>asfdd</li>
-        <li>dsddgs</li>
-    </ol>
-   
+    <!-- 左侧导航 -->
+    <nav class="left-column">
+        <a href="jianli.html" class="nav-button">个人简历 </a>
+        <a href="b.html" class="nav-button">网站</a>
+        <a href="shanxing.html" class="nav-button">扇形</a>
+        <a href="zonghe.html" class="nav-button">综合练习</a>
+    </nav>
 
+    <!-- 右侧内容 -->
+    <main class="right-column">
+        <div class="static-title">个人作业</div>
+        <a href="#" class="big-button">大作业</a>
+    </main>
 </body>
 </html>

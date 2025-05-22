@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张小可-市场营销专业简历</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #2C3E50;
+            --background-light: #f8f9fa;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            color: #333;
+            transition: background-color var(--transition-speed);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* 顶部信息栏 */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
+            border-bottom: 3px solid var(--primary-color);
+            position: relative;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            margin-right: 30px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .contact-info dl {
+            display: grid;
+            gap: 8px;
+        }
+
+        .contact-info dt {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        /* 主体内容 */
+        .main-content {
+            padding: 30px 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-left: 3px solid var(--primary-color);
+            border-radius: 6px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            font-size: 1.2em;
+        }
+
+        /* 时间轴设计 */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            width: 15px;
+            height: 15px;
+            background: white;
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+        }
+
+        /* 进度条 */
+        .progress-bar {
+            background: #f8f9fa;
+            border-radius: 25px;
+            overflow: hidden;
+            margin: 10px 0;
+            height: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            width: 0;
+            transition: width var(--transition-speed);
+        }
+
+        /* 打印样式 */
+        @media print {
+            .container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .header, .timeline::before {
+                display: none;
+            }
+            
+            .progress-bar {
+                display: none;
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-pic {
+                margin: 20px 0;
+            }
+            
+            .contact-info {
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="renwu.jpg" alt="王佳懿" class="profile-pic">
+            <div class="contact-info">
+                <dl>
+                    <div>
+                        <dt>姓名</dt>
+                        <dd>王佳懿</dd>
+                    </div>
+                    <div>
+                        <dt>籍贯</dt>
+                        <dd>上海市</dd>
+                    </div>
+                    <div>
+                        <dt>出生年月</dt>
+                        <dd>2005年6月</dd>
+                    </div>
+                    <div>
+                        <dt>院校</dt>
+                        <dd>上海对外经贸大学</dd>
+                    </div>
+                    <div>
+                        <dt>联系方式</dt>
+                        <dd>13688888888 | aaaa@163.com</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i>教育背景</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time">2020.09 - 2024.06</div>
+                        <h3>上海对外经贸大学</h3>
+                        <p>信息管理与信息系统专业</p>
+                        <p>GPA: 3.6 </p>
+                        <p>主修课程：HTML与JavaScript程序设计、概率论与数理统计、线性代数、</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i>实习经历</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time">2024.02 - 2024.05</div>
+                        <h3>某某公司 | 实习生</h3>
+                        <ul>
+                            <li>搜集市场反馈并进行客户关系维护，提高公司口碑，优化销售不足</li>
+                            <li>根据公司产品定位和目标人群展开推广活动，线下协助宣传，效果显著</li>
+                            <li>独立进行竞品分析并撰写发展方案</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-university"></i>项目经历</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time">2023.09 - 2024.06</div>
+                        <h3>什么什么项目 | 成员</h3>
+                        <ul>
+                            <li>负责了什么什么什么什么的</li>
+                            <li>获得了什么什么成效</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">2024.09 - 2025.06</div>
+                        <h3>什么什么项目 | 成员</h3>
+                        <ul>
+                            <li>组织了什么什么</li>
+                            <li>获得了什么什么成效</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-user"></i>自我评价</h2>
+                <p>拥有扎实的知识体系；</p>
+                <p>具备独到见解；</p>
+                <p>性格开朗，团队协作能力强</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.progress-fill').forEach(fill => {
+                fill.style.width = fill.style.width;
+            });
+        });
+
+        window.addEventListener('beforeprint', () => {
+            document.body.style.backgroundColor = '#fff';
+        });
+    </script>
+</body>
+</html>
